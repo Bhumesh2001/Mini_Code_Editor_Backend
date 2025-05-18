@@ -6,8 +6,10 @@ const http = require('http');
 
 const app = express();
 app.use(cors());
-const server = http.createServer(app);
 
+app.get('/', (req, res) => res.send("<h1>Welcome to the Code Editor Server</h1>"))
+
+const server = http.createServer(app);
 const wss = new WebSocketServer({ server });
 
 wss.on('connection', (ws) => {
